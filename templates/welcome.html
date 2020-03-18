@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <h1>Welcome to my page!</h1>
+    <img src="/static/pencils.jpeg">
+    <ul>
+        <!-- Jinja for-loop, creates list item for every card -->
+        {% for word in words %}
+            <li>
+                <!-- Jinja url, loop.index0 iteratively counts each loop cycle from 0 -->
+                <a href="{{ url_for('word_view', index=loop.index0) }}">
+                    <!-- Jinja variable -->
+                    {{ word.phrase }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
