@@ -1,12 +1,16 @@
 from flask import Flask, render_template, abort, jsonify, request, url_for
 
-from model import wordsDB 
+from model import wordsDB
 
 app = Flask(__name__)
 
 @app.route("/")
 def welcome():
-    return render_template("welcome.html", words=wordsDB)
+    return render_template("welcome.html")
+
+@app.route("/word")
+def word_list():
+    return render_template("word_list.html", words=wordsDB)
 
 @app.route("/word/<int:index>")
 def word_view(index):
@@ -22,7 +26,7 @@ def word_view(index):
 
 @app.route("/api/word/")
 def api_word_list():
-    return jsonify(db)
+    return jsonify(wordsDB)
 
 @app.route('/api/word/<int:index>')
 def api_word_detail(index):
