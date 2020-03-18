@@ -4,17 +4,20 @@
 
 {% block content %}
     <h1>Pictionary Word</h1>
-    Question: {{ word.phrase }} <br>
-    difficulty: {{ word.difficulty }} <br>
+    Phrase: {{ word.phrase }} <br>
+    Difficulty: {{ word.difficulty }} <br>
 
     <button onclick="window.location.href = '{{ url_for('welcome') }}';">
         Home
     </button>
 
+    <button onclick="window.location.href = '{{ url_for('random_word') }}';">
+        Random Phrase
+    </button>
     <!-- Jinja if-statement -->
     {% if index < max_index %}
         <button onclick="window.location.href = '{{ url_for('word_view', index=index+1) }}';">
-            Next Card
+            Next Phrase
         </button>
 
     {% else %}

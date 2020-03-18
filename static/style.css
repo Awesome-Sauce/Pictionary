@@ -1,15 +1,30 @@
-a:link, a:visited {
-    background-color: #f44336;
-    color: white;
-    padding: 14px 25px;
+main a:link, a:visited {
+    color: blue;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
 }
 
 body { 
-    padding-top: 65px; 
-    color: purple;
+    padding-top: 65px;
 }
 
+.navbar {
+    text-align: center;
+
+}
+
+
+
+@media (min-width: 600px){
+    .navbar li {
+        margin-left : 1em;
+        margin-right : 1em;
+    }
+}
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
 

@@ -1,8 +1,11 @@
 from flask import Flask, render_template, abort, jsonify, request, url_for
-
 from model import wordsDB
+from datetime import datetime
+import random
 
 app = Flask(__name__)
+
+
 
 @app.route("/")
 def welcome():
@@ -20,6 +23,19 @@ def word_view(index):
                                 word=word,
                                 index=index,
                                 max_index=len(wordsDB)-1
+                                )
+    except IndexError:
+        abort(404)
+@app.route("/word/random")
+def random_word():
+    try:
+        random.seed(datetime.now())
+        index = random.randint(0, len(wordsDB) - 1)
+        word = wordsDB[index]
+        return render_template("word.html",
+                                word=word,
+                                index=index,
+                                max_index=len(wordsDB) - 1
                                 )
     except IndexError:
         abort(404)
