@@ -25,9 +25,5 @@
         </button>
     {% endif %}     <!-- must close Jinja if-statement -->
 
-    <!-- timer -->
-    <div id="app"></div>
-    <script src="../static/scripts/timer.js"></script>
-
     <p><a href="{{ url_for('remove_card', index=index) }}">Remove this card</a></p>
 {% endblock %}
