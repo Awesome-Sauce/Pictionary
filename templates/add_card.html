@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Add Phrase{% endblock %}
+
+{% block content %}
+    <h1>Add a new card</h1>
+    <form method="post">
+        <p>Phrase: <input type="text" name="phrase"></p>
+        <p>Difficulty: <input type="text" name="difficulty"></p>
+        <button type="submit">Create</button>
+    </form>
+
+{% endblock %}

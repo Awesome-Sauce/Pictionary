@@ -1,14 +1,1 @@
-[
-    {
-        "phrase": "Dog", 
-        "difficulty": "easy"    
-    },
-    {
-        "phrase": "Cat", 
-        "difficulty": "easy"    
-    },
-    {
-        "phrase": "Horse", 
-        "difficulty": "easy"    
-    }  
-]
+[{"phrase": "Dog", "difficulty": "easy"}, {"phrase": "Cat", "difficulty": "easy"}, {"phrase": "Horse", "difficulty": "easy"}, {"phrase": "3D Printer", "difficulty": "Hard"}, {"phrase": "Credit Card", "difficulty": "Medium"}, {"phrase": "Soda Can", "difficulty": "Medium"}]

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Remove Phrase{% endblock %}
+
+{% block content %}
+    <h1>Remove Phrase</h1>
+    Phase:       {{ word.phrase }} <br>
+    Difficulty:  {{ word.difficulty }}
+
+    <h2>Are you sure?</h2>
+    <form method="post">
+        <button type="submit">Yes</button>
+        <button onclick="window.location.href = '{{ url_for('welcome') }}';">No</button>
+    </form>
+{% endblock %}

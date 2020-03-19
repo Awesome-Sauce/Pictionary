@@ -23,23 +23,26 @@
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="{{ url_for('welcome') }}">Fictiondairy</a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="nav navbar-nav navbar-center">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('word_list') }}">Word List</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('welcome') }}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('random_word') }}">Random Word</a>
-            </li>
-          </ul>
-
+              <ul class="nav navbar-nav navbar-center">
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('welcome') }}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('word_list') }}">Word List</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('random_word') }}">Random Word</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('add_card') }}">Add a Word</a>
+                  </li>
+              </ul>
         </div>
-      </nav>
+    </nav>
 
     <!-- Bootstrap main content -->
     <main role="main" class="container">
+        <!-- Content goes here! -->
         {% block content %}
         {% endblock %}
     </main>

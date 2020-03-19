@@ -1,11 +1,9 @@
-from flask import Flask, render_template, abort, jsonify, request, url_for
-from model import wordsDB
+from flask import Flask, render_template, abort, jsonify, request, url_for, redirect
+from model import wordsDB, save_db
 from datetime import datetime
 import random
 
 app = Flask(__name__)
-
-
 
 @app.route("/")
 def welcome():
@@ -39,6 +37,30 @@ def random_word():
                                 )
     except IndexError:
         abort(404)
+
+@app.route("/add_card", methods=["GET", "POST"])
+def add_card():
+    try:
+        if request.method == "POST":
+            # Form has been submitted and needs processing
+            card = {"phrase": request.form['phrase'],
+                    "difficulty": request.form['difficulty']}
+            wordsDB.append(card)
+            save_db()
+            return redirect(url_for('word_view', index=len(wordsDB)-1))
+        else:
+            return render_template("add_card.html")
+    except IndexError:
+        abort(404)
+
+@app.route("/remove_card/<int:index>", methods=["GET", "POST"])
+def remove_card(index):
+    if request.method == "POST":
+        del wordsDB[index]
+        save_db()
+        return redirect(url_for('welcome'))
+    else:
+        return render_template("remove_card.html", word=wordsDB[index])
 
 @app.route("/api/word/")
 def api_word_list():

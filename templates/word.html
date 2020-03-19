@@ -10,20 +10,24 @@
     <button onclick="window.location.href = '{{ url_for('welcome') }}';">
         Home
     </button>
-
     <button onclick="window.location.href = '{{ url_for('random_word') }}';">
         Random Phrase
     </button>
+
     <!-- Jinja if-statement -->
     {% if index < max_index %}
         <button onclick="window.location.href = '{{ url_for('word_view', index=index+1) }}';">
             Next Phrase
         </button>
-
     {% else %}
         <button onclick="window.location.href = '{{ url_for('word_view', index=0) }}';">
             Start Over
         </button>
-
     {% endif %}     <!-- must close Jinja if-statement -->
+
+    <!-- timer -->
+    <div id="app"></div>
+    <script src="../static/scripts/timer.js"></script>
+
+    <p><a href="{{ url_for('remove_card', index=index) }}">Remove this card</a></p>
 {% endblock %}
